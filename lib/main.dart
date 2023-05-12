@@ -16,128 +16,117 @@ class MyApp extends StatelessWidget {
 
     title: 'TabBarView inside PageView',
 
-    home: SwipeScreen(),
+    home: MyHomePage(),
 
   );
 
 }
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-// class MyHomePage extends StatefulWidget {
-//
-//   MyHomePage({Key? key}) : super(key: key);
-//
-//
-//
-//   @override
-//
-//   _MyHomePageState createState() => _MyHomePageState();
-//
-// }
-//
-//
-//
-// class _MyHomePageState extends State<MyHomePage> {
-//
-//   final PageController _pageController = PageController(viewportFraction: 0.9);
-//   int currentPage = 0;
-//
-//
-//   List _pages = [];
-//
-//
-//   @override
-//   void initState() {
-//     super.initState();
-//     Timer.periodic(Duration(seconds: 3), (timer) {
-//       if (currentPage < 1) {
-//         currentPage++;
-//       } else {
-//         currentPage = 0;
-//       }
-//       _pageController.animateToPage(
-//         currentPage,
-//         duration: Duration(milliseconds: 500),
-//         curve: Curves.easeInOut,
-//       );
-//     });
-//   }
-//
-//
-//     @override
-//     Widget build(BuildContext context) {
-//       return Stack(
-//         children: [
-//           PageView(
-//             controller: _pageController,
-//             onPageChanged: (index) {
-//               setState(() {
-//                 currentPage = index;
-//               });
-//             },
-//             children: [
-//               // Контент для первого окна
-//               Container(
-//                 color: Colors.red,
-//                 child: Center(
-//                   child: Text('Окно 1'),
-//                 ),
-//               ),
-//               // Контент для второго окна
-//               Container(
-//                 color: Colors.blue,
-//                 child: Center(
-//                   child: Text('Окно 2'),
-//                 ),
-//               ),
-//             ],
-//           ),
-//           // Индикатор текущей страницы
-//           Positioned(
-//             bottom: 16,
-//             left: 16,
-//             child: Row(
-//               children: [
-//                 Container(
-//                   width: 8,
-//                   height: 8,
-//                   margin: EdgeInsets.only(right: 8),
-//                   decoration: BoxDecoration(
-//                     shape: BoxShape.circle,
-//                     color:
-//                     currentPage == 0 ? Colors.white : Colors.white54,
-//                   ),
-//                 ),
-//                 Container(
-//                   width: 8,
-//                   height: 8,
-//                   margin: EdgeInsets.only(right: 8),
-//                   decoration: BoxDecoration(
-//                     shape: BoxShape.circle,
-//                     color:
-//                     currentPage == 1 ? Colors.white : Colors.white54,
-//                   ),
-//                 ),
-//               ],
-//             ),
-//           ),
-//         ],
-//       );
-//     }
-//   }
-//
-//
+
+
+class MyHomePage extends StatefulWidget {
+
+  MyHomePage({Key? key}) : super(key: key);
+
+
+
+  @override
+
+  _MyHomePageState createState() => _MyHomePageState();
+
+}
+
+
+
+class _MyHomePageState extends State<MyHomePage> {
+
+  final PageController _pageController = PageController(viewportFraction: 0.9);
+  int currentPage = 0;
+
+
+  List _pages = [];
+
+
+  @override
+  void initState() {
+    super.initState();
+    Timer.periodic(Duration(seconds: 3), (timer) {
+      if (currentPage < 1) {
+        currentPage++;
+      } else {
+        currentPage = 0;
+      }
+      _pageController.animateToPage(
+        currentPage,
+        duration: Duration(milliseconds: 500),
+        curve: Curves.easeInOut,
+      );
+    });
+  }
+
+
+    @override
+    Widget build(BuildContext context) {
+      return Stack(
+        children: [
+          PageView(
+            controller: _pageController,
+            onPageChanged: (index) {
+              setState(() {
+                currentPage = index;
+              });
+            },
+            children: [
+              // Контент для первого окна
+              Container(
+                color: Colors.red,
+                child: Center(
+                  child: Text('Окно 1'),
+                ),
+              ),
+              // Контент для второго окна
+              Container(
+                color: Colors.blue,
+                child: Center(
+                  child: Text('Окно 2'),
+                ),
+              ),
+            ],
+          ),
+          // Индикатор текущей страницы
+          Positioned(
+            bottom: 16,
+            left: 16,
+            child: Row(
+              children: [
+                Container(
+                  width: 8,
+                  height: 8,
+                  margin: EdgeInsets.only(right: 8),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color:
+                    currentPage == 0 ? Colors.white : Colors.white54,
+                  ),
+                ),
+                Container(
+                  width: 8,
+                  height: 8,
+                  margin: EdgeInsets.only(right: 8),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color:
+                    currentPage == 1 ? Colors.white : Colors.white54,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      );
+    }
+  }
+
+
 
 
 
